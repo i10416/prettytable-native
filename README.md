@@ -1,6 +1,6 @@
 
 # Write a Simple CLI Application with Scala Native
-
+This repository shows a simple example of writing a standalone CLI application with scala-native.
 ## Goal
 Our goal is to write a toy application which pretty-prints a csv file in your terminal.
 
@@ -111,4 +111,4 @@ libraryDependencies ++=Seq(
 enablePlugins(ScalaNativePlugin)
 ```
 
-For details, `see src/main/scala/*.scala` .
+For more details, `see src/main/scala/*.scala` .
