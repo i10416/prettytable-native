@@ -8,6 +8,7 @@ libraryDependencies ++=Seq(
         "com.lihaoyi"  %%% "fansi"        % "0.2.10",
         "com.lihaoyi"  %%% "os-lib"       % "0.7.2",
         "com.monovore"  %%% "decline" % "2.1.0",
+        "io.argonaut" %%% "argonaut" % "6.3.6",
         "org.scalatest" %% "scalatest"    % "3.2.3" % Test
   )
 

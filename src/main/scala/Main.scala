@@ -4,6 +4,7 @@ import commands._
 import route.Route
 import usecase.GenerateTableUsecase
 import com.monovore.decline.{Command}
+import usecase.GenerateJsonTableUsecase
 object Main {
   def main(args: Array[String]): Unit = {
     val command = Command(
@@ -11,8 +12,9 @@ object Main {
       header = "pritty print table in terminal",
       helpFlag = true
     )(Commands.appCmd)
-    val usecase = new GenerateTableUsecase()
-    val route = new Route(usecase)
+    val csvUsecase = new GenerateTableUsecase()
+    val jsonUsecase = new GenerateJsonTableUsecase()
+    val route = new Route(csvUsecase, jsonUsecase)
     command.parse(args) match {
       case Right((globalFlags, commandOptions)) =>
         dispatchCmd(globalFlags, commandOptions, route)
