@@ -4,7 +4,7 @@ This repository shows a simple example of writing a standalone CLI application w
 ## Goal
 Our goal is to write a toy application which pretty-prints a csv file in your terminal.
 
-Input: example.csv
+Input: test.csv
 ```
 id,name,icon,comment,favorite
 1,tama,😼,meow,matatabi
@@ -12,12 +12,27 @@ id,name,icon,comment,favorite
 ```
 Output
 ```
-prettytable example.csv
+prettytable test.csv
 id|name |icon|comment|favorite
 ==+=====+====+=======+========
 1 |tama |😼  |meow   |matatabi
 --+-----+----+-------+--------
 2 |pochi|🐶  |bowwow |🦴
+```
+
+Output: test.json
+```
+prettytable test.json
+website        |name                      |email                      |username          |company|id|address|phone
+===============+==========================+===========================+==================+=======+==+=======+=======================
+"hildegard.org"|"Leanne Graham"           |"Sincere@april.biz"        |"Bret"            |...    |1 |...    |"1-770-736-8031 x56442"
+---------------+--------------------------+---------------------------+------------------+-------+--+-------+-----------------------
+"anastasia.net"|"Ervin Howell"            |"Shanna@melissa.tv"        |"Antonette"       |...    |2 |...    |"010-692-6593 x09125"
+---------------+--------------------------+---------------------------+------------------+-------+--+-------+-----------------------
+"ramiro.info"  |"Clementine Bauch"        |"Nathan@yesenia.net"       |"Samantha"        |...    |3 |...    |"1-463-123-4447"
+---------------+--------------------------+---------------------------+------------------+-------+--+-------+----------------------
+
+
 ```
 ## Getting Started
 To write a scala-native application, set up your dev environment according to following steps. 
