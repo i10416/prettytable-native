@@ -8,12 +8,6 @@ import argonaut._
 import model._
 import scala.collection.mutable.{ArrayBuffer => MArrayBuffer}
 import scala.util.{Success, Failure}
-import argonaut.JNull
-import argonaut.JBool
-import argonaut.JNumber
-import argonaut.JString
-import argonaut.JArray
-import argonaut.JObject
 import route.JsonIsNotArray
 class GenerateJsonTableUsecase {
   def execute(filePath: Path): Either[ShowCSVError, Table] = {

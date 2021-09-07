@@ -44,8 +44,7 @@ case class Table(
 object Table {
   type Cell = String
 
-
-  def build(table:Seq[Seq[String]]):Table = {
+  def build(table: Seq[Seq[String]]): Table = {
     var columnWidths = MArrayBuffer[Int]()
     var rowBuffer = MArrayBuffer[Row]()
 
