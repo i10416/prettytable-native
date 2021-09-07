@@ -44,6 +44,28 @@ case class Table(
 object Table {
   type Cell = String
 
+
+  def build(table:Seq[Seq[String]]):Table = {
+    var columnWidths = MArrayBuffer[Int]()
+    var rowBuffer = MArrayBuffer[Row]()
+
+    table.foreach { fields =>
+      if (columnWidths.isEmpty) {
+        columnWidths = MArrayBuffer.fill[Int](fields.length)(0)
+      }
+      var cells = MArrayBuffer[Table.Cell]()
+      fields.zip(columnWidths).zipWithIndex.foreach {
+        case ((field, columnWidth), idx) =>
+          if (field.length > columnWidth) {
+            columnWidths.update(idx, field.length)
+          }
+          cells += Table.Cell(field)
+      }
+      rowBuffer += Row(cells.toArray)
+    }
+    Table(columnWidths.toSeq, true, rowBuffer.toSeq)
+  }
+
   object Cell {
     def apply(s: String): Table.Cell = s
   }
