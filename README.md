@@ -2,7 +2,7 @@
 # Write a Simple CLI Application with Scala Native
 This repository shows a simple example of writing a standalone CLI application with scala-native.
 ## Goal
-Our goal is to write a toy application which pretty-prints a csv file in your terminal.
+Our goal is to write a toy application which pretty-prints a csv o json file in your terminal.
 
 Input: test.csv
 ```
@@ -88,12 +88,13 @@ sbt run
 
 ## Write Application
 
-We use following dependencies to build the application.
+We use following dependencies to build the application. I recommend you have a quick look at their documentations before start.
 
-- cats: It offers functional data structures and syntax.
-- decline: It enables us to handle command-line arguments in a functional way.
-- oslib: simple and unopinionated i/o utilities.
-- fansi: decorate terminal output.
+- [cats](https://typelevel.org/cats/): It offers functional data structures and syntax.
+- [decline](https://ben.kirw.in/decline/): It enables us to handle command-line arguments in a functional way.
+- [oslib](https://github.com/com-lihaoyi/os-lib): simple and unopinionated i/o utilities.
+- [fansi](https://github.com/com-lihaoyi/fansi): decorate terminal output.
+- [argonaut](http://argonaut.io/): Purely Functional JSON in Scala
 
 ### build declinenative locally
 
@@ -120,10 +121,13 @@ libraryDependencies ++=Seq(
         "org.typelevel" %%% "cats-core" % "2.6.1",
         "com.lihaoyi"  %%% "fansi"        % "0.2.10",
         "com.lihaoyi"  %%% "os-lib"       % "0.7.2",
-        "com.monovore"  %%% "decline" % "2.1.0"
+        "com.monovore"  %%% "decline" % "2.1.0",
+        "io.argonaut" %%% "argonaut" % "6.3.6",
   )
 
 enablePlugins(ScalaNativePlugin)
 ```
+
+Then, start writing the application and execute `sbt run` command to build and run your application.
 
 For more details, `see src/main/scala/*.scala` .
