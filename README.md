@@ -153,7 +153,7 @@ if(os.isFile(path)) {
 
 Decline offers composable syntax to parse command line arguments.
 
-For example, this command below parses an argument like `<command-name> example.txt` as `File`.
+For example, this command below parses an argument like `<command-name> example.txt` as `Path`.
 
 ```scala
 val file = Opts.argument[Path](metavar="file")
