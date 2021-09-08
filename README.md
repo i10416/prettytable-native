@@ -131,3 +131,8 @@ enablePlugins(ScalaNativePlugin)
 Then, start writing the application and execute `sbt run` command to build and run your application.
 
 For more details, `see src/main/scala/*.scala` .
+
+
+## Useful links
+- scala-native documentation : http://scala-native.org/
+- Write CLI Application with Scala and graal native image : https://msitko.pl/blog/2020/03/10/writing-native-cli-applications-in-scala-with-graalvm.html
