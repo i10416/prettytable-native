@@ -5,7 +5,7 @@ nativeLinkStubs := true
 
 libraryDependencies ++= Seq(
   "org.typelevel" %%% "cats-core" % "2.6.1",
-  "com.lihaoyi" %%% "fansi" % "0.2.10",
+  "com.lihaoyi" %%% "fansi" % "0.2.14",
   "com.lihaoyi" %%% "os-lib" % "0.7.8",
   "com.monovore" %%% "decline" % "2.1.0",
   "io.argonaut" %%% "argonaut" % "6.3.8",
