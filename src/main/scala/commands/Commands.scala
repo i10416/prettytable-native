@@ -15,8 +15,9 @@ object Commands {
   val flags: Opts[GlobalFlags] = {
     val noHeaderOpt = booleanFlag(
       "no-header",
-      help = "determine whether or not to use the first line of csv file as header row.\n" +
-        "The header is decorated with bold horizontal separator."
+      help =
+        "determine whether or not to use the first line of csv file as header row.\n" +
+          "The header is decorated with bold horizontal separator."
     )
     noHeaderOpt.map(noHeader => GlobalFlags(noHeader))
   }
