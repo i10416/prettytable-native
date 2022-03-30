@@ -4,7 +4,7 @@ scalaVersion := "2.13.8"
 nativeLinkStubs := true
 
 libraryDependencies ++= Seq(
-  "org.typelevel" %%% "cats-core" % "2.6.1",
+  "org.typelevel" %%% "cats-core" % "2.7.0",
   "com.lihaoyi" %%% "fansi" % "0.2.14",
   "com.lihaoyi" %%% "os-lib" % "0.7.8",
   "com.monovore" %%% "decline" % "2.1.0",
