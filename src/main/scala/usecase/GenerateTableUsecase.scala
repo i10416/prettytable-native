@@ -9,7 +9,10 @@ import model._
 import scala.collection.mutable.{ArrayBuffer => MArrayBuffer}
 import scala.util.{Success, Failure}
 class GenerateTableUsecase {
-  def execute(filePath: Path,hasHeader:Boolean): Either[ShowCSVError, Table] = {
+  def execute(
+      filePath: Path,
+      hasHeader: Boolean
+  ): Either[ShowCSVError, Table] = {
     var columnWidths = MArrayBuffer[Int]()
     var rows = MArrayBuffer[Row]()
     os.read.lines.stream(filePath).foreach { line =>
