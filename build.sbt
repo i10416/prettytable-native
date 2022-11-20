@@ -9,7 +9,7 @@ libraryDependencies ++= Seq(
   "com.lihaoyi" %%% "os-lib" % "0.7.8",
   "com.monovore" %%% "decline" % "2.2.0",
   "io.argonaut" %%% "argonaut" % "6.3.8",
-  "org.scalatest" %% "scalatest" % "3.2.3" % Test
+  "org.scalatest" %% "scalatest" % "3.2.14" % Test
 )
 
 enablePlugins(ScalaNativePlugin)
