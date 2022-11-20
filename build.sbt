@@ -1,4 +1,4 @@
-scalaVersion := "2.13.8"
+scalaVersion := "2.13.10"
 
 // Set to false or remove if you want to show stubs as linking errors
 nativeLinkStubs := true
