@@ -114,18 +114,19 @@ sbt
 Then, add libraryDependencies to your `build.sbt`.
 
 ```scala
-scalaVersion := "2.13.6"
+scalaVersion := "3.3.0"
 
 // Set to false or remove if you want to show stubs as linking errors
 nativeLinkStubs := true
 
-libraryDependencies ++=Seq(
-        "org.typelevel" %%% "cats-core" % "2.6.1",
-        "com.lihaoyi"  %%% "fansi"        % "0.2.10",
-        "com.lihaoyi"  %%% "os-lib"       % "0.7.2",
-        "com.monovore"  %%% "decline" % "2.1.0",
-        "io.argonaut" %%% "argonaut" % "6.3.6",
-  )
+libraryDependencies ++= Seq(
+  "org.typelevel" %%% "cats-core" % "2.9.0",
+  "com.lihaoyi" %%% "fansi" % "0.4.0",
+  "com.lihaoyi" %%% "os-lib" % "0.9.1",
+  "com.monovore" %%% "decline" % "2.4.1",
+  "io.argonaut" %%% "argonaut" % "6.3.8",
+  "org.scalatest" %% "scalatest" % "3.2.16" % Test
+)
 
 enablePlugins(ScalaNativePlugin)
 ```

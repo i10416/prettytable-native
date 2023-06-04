@@ -18,7 +18,7 @@ class GenerateJsonTableUsecase {
     json match {
       case Left(_) => Left(ParseError())
       case Right(j) if j.isArray => {
-        val Some(jsonArray) = j.array
+        val Some(jsonArray) = j.array: @unchecked
         // collect json keys.
         val keys = (for {
           json <- jsonArray
