@@ -1,0 +1,31 @@
+$schema: https://raw.githubusercontent.com/oyvindberg/bleep/master/schema.json
+$version: 0.0.2
+jvm:
+  name: graalvm-java17:22.2.0
+projects:
+  prettytable-native:
+    dependencies:
+      - com.lihaoyi::fansi:0.4.0
+      - com.lihaoyi::os-lib:0.9.1
+      - org.typelevel::cats-core:2.9.0
+      - com.monovore::decline:2.4.1
+      - io.argonaut::argonaut:6.3.8
+    extends: template-common
+    platform:
+      mainClass: Main
+  tests:
+    dependencies: org.scalatest::scalatest:3.2.13
+    dependsOn: prettytable-native
+    extends: template-common
+    isTestProject: true
+templates:
+  template-common:
+    platform:
+      name: native
+      nativeGc: immix
+      nativeMode: debug
+      nativeVersion: 0.4.12
+    scala:
+      options: -encoding utf8 -feature -unchecked
+      strict: true
+      version: 3.3.0
