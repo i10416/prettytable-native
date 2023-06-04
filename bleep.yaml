@@ -4,12 +4,6 @@ jvm:
   name: graalvm-java17:22.2.0
 projects:
   prettytable-native:
-    dependencies:
-      - com.lihaoyi::fansi:0.4.0
-      - com.lihaoyi::os-lib:0.9.1
-      - org.typelevel::cats-core:2.9.0
-      - com.monovore::decline:2.4.1
-      - io.argonaut::argonaut:6.3.8
     extends: template-common
     platform:
       mainClass: Main
@@ -18,13 +12,26 @@ projects:
     dependsOn: prettytable-native
     extends: template-common
     isTestProject: true
+    platform:
+      name: jvm
 templates:
   template-common:
-    platform:
-      name: native
-      nativeGc: immix
-      nativeMode: debug
-      nativeVersion: 0.4.12
+    cross:
+      jvm3:
+        platform:
+          name: jvm
+      native3:
+        platform:
+          name: native
+          nativeGc: immix
+          nativeMode: debug
+          nativeVersion: 0.4.12
+    dependencies:
+      - com.lihaoyi::fansi:0.4.0
+      - com.lihaoyi::os-lib:0.9.1
+      - org.typelevel::cats-core:2.9.0
+      - com.monovore::decline:2.4.1
+      - io.argonaut::argonaut:6.3.8
     scala:
       options: -encoding utf8 -feature -unchecked
       strict: true
