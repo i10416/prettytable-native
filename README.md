@@ -131,7 +131,7 @@ libraryDependencies ++= Seq(
 enablePlugins(ScalaNativePlugin)
 ```
 
-In addition, create a `project/plugins.sbt` file to add Scala Native plugin.
+In addition, make sure your `project/plugins.sbt` has correct version of Scala Native plugin.
 
 
 ```
