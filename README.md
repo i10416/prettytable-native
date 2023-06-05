@@ -1,8 +1,9 @@
 
 # Write a Simple CLI Application with Scala Native
-This repository shows a simple example of writing a standalone CLI application with scala-native.
+This repository shows a simple example of writing a standalone CLI application with scala JVM and Scala Native.
 
 Compared to using GraalVM Native Image, there is few gotcha in writing and building scala-native application! 
+
 ## Goal
 Our goal is to write a toy application which pretty-prints a csv or json file in your terminal.
 
@@ -38,7 +39,16 @@ website        |name                      |email                      |username 
 ```
 ## Getting Started
 To write a scala-native application, set up your dev environment according to following steps. 
-### Install Scala
+
+### Install Scala(or sbt or bleep)
+
+What is the differences?
+
+- cs is a short for [coursier](https://get-coursier.io/), which is dependency resolution(and more) library for Scala. In addition to dependency fetching, coursier has a CLI which makes it easy for you to setup useful tools for Scala development.
+- sbt is a de facto build tool for Scala ecosystem. You can write build tasks in Scala DSL and then sbt takes all the hard works(managing Scala version, dependencies, run tasks, etc.) to build Scala application/library on behalf of you.
+- [bleep](https://bleep.build/docs/) is a new build tool for Scala. It is still its early phase and not stable yet. People from Rust and NodeJS may feel more comfortable with bleep build model than sbt build model.
+
+Here, I demonstrate how to install coursier CLI and setup Scala development environment.
 
 ```sh
 curl -fLo cs https://git.io/coursier-cli-"$(uname | tr LD ld)"
@@ -98,20 +108,10 @@ We use following dependencies to build the application. I recommend you have a q
 - [fansi](https://github.com/com-lihaoyi/fansi): decorate terminal output.
 - [argonaut](http://argonaut.io/): Purely Functional JSON in Scala
 
-### build declinenative locally
 
-Decline supports scala-native, but it has yet to offer artifacts for scala-native 0.4 with scala 2.13.x. Thus, we manually build it and use the local artifact.
 
-```sh
-git clone git@github.com:monovore/decline
-cd decline
 
-sbt
-> +declinenative/compile
-> +declinenative/publishLocal
-```
-
-Then, add libraryDependencies to your `build.sbt`.
+Add these libraryDependencies to your `build.sbt`.
 
 ```scala
 scalaVersion := "3.3.0"
@@ -130,6 +130,16 @@ libraryDependencies ++= Seq(
 
 enablePlugins(ScalaNativePlugin)
 ```
+
+In addition, create a `project/plugins.sbt` file to add Scala Native plugin.
+
+
+```
+addSbtPlugin("org.scala-native" % "sbt-scala-native" % "0.4.12")
+```
+
+Now, run `sbt compile` to check your sbt build works.
+
 
 ## handle i/o
 To get a file path from command line argument, we use oslib.
